@@ -1,7 +1,7 @@
 module.exports = {
   cookieSecret: 'cookieSecret',
   sessionSecret: 'sessionSecret',
-  db: 'idea_list',
+  db: 'interview',
   host: 'localhost',
   port: 3000,
   session: {
@@ -11,8 +11,5 @@ module.exports = {
     }
   },
   emailFrom: 'Email Server <email_server@mail.com>',
-  mongooseDebug: false,
-  slackKey: 'slack_key',
-  slackTeam: 'slack_team',
-  slackErrorChannel: '#error'
+  mongooseDebug: false
 };
