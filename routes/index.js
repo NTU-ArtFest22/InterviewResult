@@ -1,34 +1,23 @@
 'use strict';
 
-var api = require('./api');
 var _ = require('lodash');
-var middleWare = require('./middle_ware');
-
-function passLocals(req, pageTitle, object) {
-  var error = req.flash('error');
-  var message = req.flash('message');
-  var currentUser = req.session.currentUser;
-  return _.extend({
-    error: error,
-    message: message,
-    currentUser: currentUser,
-    pageTitle: pageTitle
-  }, object);
-}
 
 module.exports = function(app) {
 
-  app.use('/api', api);
-  /*----- index page -----*/
-
   app.get('/', function(req, res) {
-    return res.render('index', passLocals(req, 'index'));
-  });
-  app.get('/login', function(req, res) {
-    return res.render('login', passLocals(req, 'login'));
+    return res.render('index');
   });
 
-  app.use(middleWare.loginCheck);
+  app.post('/result', function(req, res) {
+    var name = req.body.name;
+    var phone = req.body.phone;
+    if (!name || !phone) {
+      return res.render('error');
+    }
+    return res.render('result', {
+      name: name
+    });
+  });
 
   app.use(function(req, res) {
     req.flash('error', '404 Page Not Found');
