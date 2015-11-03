@@ -10,7 +10,7 @@ module.exports = function(app) {
   });
   app.get('/page/:page', function(req, res) {
     var renderPage = req.params.page;
-    return res.render(renderPage,{
+    return res.render(renderPage, {
       name: 'name',
       from: 'from',
       depaprtment: 'depaprtment',
@@ -33,6 +33,7 @@ module.exports = function(app) {
     var renderPage = 'error';
     var depaprtment = '';
     var from = '';
+    var errorType = '';
     if (found) {
       depaprtment = found.depaprtment;
       from = found.from;
@@ -73,13 +74,28 @@ module.exports = function(app) {
           break;
       }
     } else {
+      errorType = 'both_wrong';
+      found = _.findWhere(data, {
+        name: name
+      });
+      if (found) {
+        errorType = 'wrong_phone';
+      } else {
+        found = _.findWhere(data, {
+          phone: phone
+        });
+        if (found) {
+          errorType = 'wrong_name';
+        }
+      }
       renderPage = 'result_sorry';
     }
     return res.render(renderPage, {
       name: name,
       from: from,
       depaprtment: depaprtment,
-      vdc: vdcSpecialCase
+      vdc: vdcSpecialCase,
+      errorType: errorType
     });
   });
 
