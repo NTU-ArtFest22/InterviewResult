@@ -213,11 +213,11 @@ body {
 
 #error .header .container .img-responsive {
     padding-left: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 #error .header .container p {
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 
 #error .header .container a:hover {
