@@ -85,8 +85,8 @@ input[type="text"]:focus {
     border-radius: 5px;
 }
 .btn-default {
-    border: 2px solid #00AA90;
-    color: #00AA90;
+    border: 2px solid #E87A90;
+    color: #E87A90;
     background-color: transparent;
 }
 
@@ -94,8 +94,8 @@ input[type="text"]:focus {
 .btn-default:focus {
     outline: none;
     color: white;
-    background-color: #00AA90;
-    border: 2px solid #00AA90;
+    background-color: #DB4D6D;
+    border: 2px solid #DB4D6D;
 }
 
 .btn-transparent {
