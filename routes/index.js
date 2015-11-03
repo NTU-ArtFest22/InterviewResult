@@ -36,7 +36,7 @@ module.exports = function(app) {
     var from = '';
     var errorType = '';
     if (found) {
-      depaprtment = found.depaprtment;
+      depaprtment = found.depaprtment.toLowerCase();
       from = found.from;
       switch (depaprtment) {
         case 'day':
