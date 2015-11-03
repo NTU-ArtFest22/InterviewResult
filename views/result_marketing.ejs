@@ -1,5 +1,26 @@
-Name<br>
-<%= name %>
-<a href="https://www.facebook.com/">
-  download form
-</a>
+<% include header %>
+<div id="result">
+  <section class="header">
+    <div class="container">
+      <img src="/image/mk-icon.png" class="img-responsive center-block wow fadeInDown" data-wow-duration="2s" alt="">
+      <h3 class="wow fadeInUp" data-wow-duration="2s">
+      	<%= name %><br>
+      	恭喜你錄取行銷部
+      </h3>
+      <p class="message wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
+        
+      </p>
+      <a href="/" class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
+        <button class="btn btn-transparent center-block">返回前頁</button>
+      </a>
+    </div>
+  </section>
+</div>
+<script>
+$(document).ready(function(){
+//activate wow
+  $('#result').css( "display", "block" );
+  new WOW().init();
+});
+</script>
+<% include footer %>

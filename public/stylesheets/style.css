@@ -21,6 +21,7 @@ h6 {
 	letter-spacing: 2px;
     cursor: default;
     color: #fff;
+    line-height: 2;
 }
 
 p {
@@ -229,4 +230,51 @@ body {
 
 #error .header .container a:hover {
     text-decoration: none;
+}
+
+
+/* Sorry page css */
+#sorry {
+    display: none;
+}
+
+#sorry .header {
+    text-align: center;
+    padding-top: 100px;
+} 
+
+#sorry .header .container .img-responsive {
+    padding-left: 10px;
+    margin-bottom: 100px;
+}
+
+#sorry .header .container .sorry-message {
+    text-align: left;
+    letter-spacing: 1px;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 50px;
+}
+
+/* AD page css */
+#result {
+    display: none;
+}
+
+#result .header {
+    text-align: center;
+    padding-top: 100px;
+} 
+
+#result .header .container .img-responsive {
+    padding-left: 10px;
+    margin-bottom: 100px;
+}
+
+#result .header .container .message {
+    text-align: left;
+    letter-spacing: 1px;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 50px;
 }
