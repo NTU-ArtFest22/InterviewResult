@@ -51,8 +51,7 @@ exports.server = function() {
   routes(app);
   // all environments
   app.use(function(err, req, res, next) {
-    console.log(err.stack);
-    return res.status(500).send('Something broken!');
+    return res.status(500).send(err.stack);
   });
 
   var port = app.get('port');
