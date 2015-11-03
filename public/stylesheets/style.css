@@ -170,6 +170,10 @@ body {
 	letter-spacing: 1px;
 }
 /* Index page css */
+#index {
+    display: none;
+}
+
 #index .header {
 	text-align: center;
 	padding-top: 100px;
@@ -205,6 +209,9 @@ body {
 }
 
 /* Error page css */
+#error {
+    display: none;
+}
 
 #error .header {
     text-align: center;
