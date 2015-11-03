@@ -22,6 +22,8 @@ module.exports = function(app) {
   app.post('/result', function(req, res) {
     var name = req.body.name;
     var phone = req.body.phone;
+    name = name.trim();
+    phone = phone.trim();
     if (!name || !phone) {
       return res.render('error');
     }
@@ -88,8 +90,7 @@ module.exports = function(app) {
         });
         if (found) {
           errorType = 'wrong_name';
-        }
-        else{
+        } else {
           renderPage = 'result_sorry';
         }
       }
