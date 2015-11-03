@@ -20,55 +20,57 @@ module.exports = function(app) {
       name: name,
       phone: phone
     });
-    var vdc_special_case = {};
-    var render_page = 'error';
+    var vdcSpecialCase = {};
+    var renderPage = 'error';
+    var depaprtment = '';
+    var from = '';
     if (found) {
-      var depaprtment = found.depaprtment
-      var from = found.from
+      depaprtment = found.depaprtment;
+      from = found.from;
       switch (depaprtment) {
         case 'day':
-          render_page = 'result_day';
+          renderPage = 'result_day';
           break;
         case 'night':
-          render_page = 'result_night';
+          renderPage = 'result_night';
           break;
         case 'dream':
-          render_page = 'result_dream';
+          renderPage = 'result_dream';
           break;
         case 'marketing':
-          render_page = 'result_marketing';
+          renderPage = 'result_marketing';
           break;
         case 'administration':
-          render_page = 'result_administration';
+          renderPage = 'result_administration';
           break;
         case 'hr':
-          render_page = 'result_hr';
+          renderPage = 'result_hr';
           break;
         case 'design':
-          render_page = 'result_design';
+          renderPage = 'result_design';
           break;
         case 'pr':
-          render_page = 'result_pr';
+          renderPage = 'result_pr';
           break;
         case 'r2d2':
-          render_page = 'result_r2d2';
+          renderPage = 'result_r2d2';
           break;
         case 'vdc':
-          render_page = 'result_vdc';
-          vdc_special_case = found.vdc_special_case;
+          renderPage = 'result_vdc';
+          vdcSpecialCase = found.vdcSpecialCase;
           break;
         default:
-          render_page = 'error';
+          renderPage = 'error';
           break;
       }
-    }else{
-      render_page = 'result_sorry';
+    } else {
+      renderPage = 'result_sorry';
     }
-    return res.render(render_page, {
+    return res.render(renderPage, {
       name: name,
       from: from,
       depaprtment: depaprtment,
-      vdc: vdc_special_case
+      vdc: vdcSpecialCase
     });
   });
 
