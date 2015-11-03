@@ -76,6 +76,7 @@ module.exports = function(app) {
       }
     } else {
       errorType = 'both_wrong';
+      renderPage = 'error';
       found = _.findWhere(data, {
         name: name
       });
@@ -88,8 +89,10 @@ module.exports = function(app) {
         if (found) {
           errorType = 'wrong_name';
         }
+        else{
+          renderPage = 'result_sorry';
+        }
       }
-      renderPage = 'error';
     }
     return res.render(renderPage, {
       name: name,
