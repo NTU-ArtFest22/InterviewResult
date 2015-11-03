@@ -20,9 +20,12 @@ module.exports = function(app) {
       name: name,
       phone: phone
     });
+    var vdc_special_case = {};
     var render_page = 'error';
     if (found) {
-      switch (found.depaprtment) {
+      var depaprtment = found.depaprtment
+      var from = found.from
+      switch (depaprtment) {
         case 'day':
           render_page = 'result_day';
           break;
@@ -50,13 +53,22 @@ module.exports = function(app) {
         case 'r2d2':
           render_page = 'result_r2d2';
           break;
+        case 'vdc':
+          render_page = 'result_vdc';
+          vdc_special_case = found.vdc_special_case;
+          break;
         default:
           render_page = 'error';
           break;
       }
+    }else{
+      render_page = 'result_sorry';
     }
     return res.render(render_page, {
-      name: name
+      name: name,
+      from: from,
+      depaprtment: depaprtment,
+      vdc: vdc_special_case
     });
   });
 
