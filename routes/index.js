@@ -14,7 +14,8 @@ module.exports = function(app) {
       name: 'name',
       from: 'from',
       depaprtment: 'depaprtment',
-      vdc: 'vdcSpecialCase'
+      vdc: 'vdcSpecialCase',
+      errorType: 'errorType'
     });
   });
 

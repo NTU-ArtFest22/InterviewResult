@@ -1,34 +1,33 @@
 <% include header %>
-	<div id="index">
-		<section class="header">
-			<div class="container">
-				<img src="/image/logo.png" class="img-responsive center-block wow fadeIn" data-wow-duration="2s" alt="" style="height: 100px;">
-				<h3 class="wow fadeIn" data-wow-duration="2s">第二十二屆臺灣大學藝術季<br>
-				第一階段招募面試結果</h3>
-			</div>
-		</section>
-		<section class="query wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
-			<div class="container">
-				<form action="/result" method="post">
-					<div class="form-group">
-						<label for="name">請輸入你的名字</label>
-						<input type="text" name="name" required class="form-control" placeholder="EX：王小明" oninvalid="this.setCustomValidity('你尚未填入你的名字')" onchange="this.setCustomValidity('')">
-					</div>
-					<div class="form-group">
-						<label for="phone">請輸入你的手機號碼</label>
-						<input type="text" name="phone" required class="form-control" placeholder="EX：0912345678" oninvalid="this.setCustomValidity('你尚未填入你的手機號碼')" onchange="this.setCustomValidity('')">
-					</div>
-					<button type="submit" class="btn btn-transparent center-block">馬上查詢</button>
-				</form>
-			</div>
-		</section>
-	</div>
+<div id="index">
+  <section class="header">
+    <div class="container">
+      <img src="/image/logo.png" class="img-responsive center-block wow fadeIn" data-wow-duration="2s" alt="" style="height: 100px;">
+      <h3 class="wow fadeIn" data-wow-duration="2s">第二十二屆臺灣大學藝術季<br>
+      第一階段招募面試結果</h3>
+    </div>
+  </section>
+  <section class="query wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
+    <div class="container">
+      <form action="/result" method="post">
+        <div class="form-group">
+          <label for="name">請輸入你的名字</label>
+          <input type="text" name="name" required class="form-control" placeholder="EX：王小明" oninvalid="this.setCustomValidity('你尚未填入你的名字')" onchange="this.setCustomValidity('')">
+        </div>
+        <div class="form-group">
+          <label for="phone">請輸入你的手機號碼</label>
+          <input type="text" name="phone" required class="form-control" placeholder="EX：0912345678" oninvalid="this.setCustomValidity('你尚未填入你的手機號碼')" onchange="this.setCustomValidity('')">
+        </div>
+        <button type="submit" class="btn btn-transparent center-block">馬上查詢</button>
+      </form>
+    </div>
+  </section>
+</div>
 <script>
-	$(document).ready(function(){
-		//activate wow
-        new WOW().init();
-        document.getElementById("#index").style.display = "block";
-	});
+$(document).ready(function(){
+//activate wow
+  $('#index').css( "display", "block" );
+  new WOW().init();
+});
 </script>
 <% include footer %>
-

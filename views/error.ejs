@@ -1,29 +1,29 @@
 <% include header %>
-	<div id="error">
-		<section class="header">
-			<div class="container">
-				<img src="/image/error-icon.png" class="img-responsive center-block wow fadeInDown" data-wow-duration="2s" alt="">
-				<h3 class="wow fadeInUp" data-wow-duration="2s">很抱歉，我們似乎迷失在茫茫星際之中了⋯⋯</h3>
-				<p class="error-message wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
-					<% if(errorType==='wrong_phone'){ %>
-						你似乎打錯了你的電話號碼，請回到前一頁重新輸入喔！
-					<% }else if(errorType==='wrong_name'){ %>
-						你似乎打錯了你的名字，請回到前一頁重新輸入喔！
-					<% }else if(errorType==='both_wrong'){ %>
-						齁，沒有報名就不要亂玩ㄋㄚ！
-					<% }%>
-				</p>
-				<a href="/" class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
-					<button class="btn btn-transparent center-block">返回前頁</button>
-				</a> 
-			</div>
-		</section>
-	</div>
+<div id="error">
+  <section class="header">
+    <div class="container">
+      <img src="/image/error-icon.png" class="img-responsive center-block wow fadeInDown" data-wow-duration="2s" alt="">
+      <h3 class="wow fadeInUp" data-wow-duration="2s">很抱歉，我們似乎迷失在茫茫星際之中了⋯⋯</h3>
+      <p class="error-message wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
+        <% if(errorType==='wrong_phone'){ %>
+        你似乎打錯了你的電話號碼，請回到前一頁重新輸入喔！
+        <% }else if(errorType==='wrong_name'){ %>
+        你似乎打錯了你的名字，請回到前一頁重新輸入喔！
+        <% }else if(errorType==='both_wrong'){ %>
+        齁，沒有報名就不要亂玩ㄋㄚ！
+        <% }%>
+      </p>
+      <a href="/" class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
+        <button class="btn btn-transparent center-block">返回前頁</button>
+      </a>
+    </div>
+  </section>
+</div>
 <script>
-	$(document).ready(function(){
-		//activate wow
-        new WOW().init();
-        document.getElementById("#error").style.display = "block";
-	});
+$(document).ready(function(){
+//activate wow
+  $('#error').css( "display", "block" );
+  new WOW().init();
+});
 </script>
 <% include footer %>
