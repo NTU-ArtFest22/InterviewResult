@@ -8,6 +8,15 @@ module.exports = function(app) {
   app.get('/', function(req, res) {
     return res.render('index');
   });
+  app.get('/page/:page', function(req, res) {
+    var renderPage = req.params.page;
+    return res.render(renderPage,{
+      name: 'name',
+      from: 'from',
+      depaprtment: 'depaprtment',
+      vdc: 'vdcSpecialCase'
+    });
+  });
 
   app.post('/result', function(req, res) {
     var name = req.body.name;
