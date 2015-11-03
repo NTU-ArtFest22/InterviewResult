@@ -1,7 +1,5 @@
 'use strict';
 
-var settings = require('./settings');
-
 var express = require('express');
 var http = require('http');
 var path = require('path');
@@ -24,7 +22,7 @@ exports.server = function() {
     app.use(errorhandler());
   }
 
-  app.set('port', settings.port || 3000);
+  app.set('port', 3000);
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'ejs');
   app.use(morgan('dev'));
