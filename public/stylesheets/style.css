@@ -9,6 +9,7 @@ body {
     height: 100%;
     background-color: black;
     font-family: "Lato", sans-serif;
+    overflow-x: hidden;
 }
 
 h1,
@@ -38,12 +39,13 @@ a {
 	-webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
-    &:hover,
-    &:focus {
-        text-decoration: none;
-        outline: none;
-        color: rgba(256, 256, 256, 0.2);
-    }
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    outline: none;
+    color: rgba(256, 256, 256, 0.2);
 }
 
 input[type="text"] {
@@ -83,8 +85,8 @@ input[type="text"]:focus {
     border-radius: 5px;
 }
 .btn-default {
-    border: 1px solid #D0104C;
-    color: #D0104C;
+    border: 2px solid #00AA90;
+    color: #00AA90;
     background-color: transparent;
 }
 
@@ -92,7 +94,8 @@ input[type="text"]:focus {
 .btn-default:focus {
     outline: none;
     color: white;
-    background-color: #D0104C;
+    background-color: #00AA90;
+    border: 2px solid #00AA90;
 }
 
 .btn-transparent {
@@ -189,6 +192,10 @@ body {
 	line-height: 1.5;
 }
 
+#index .query {
+    padding-bottom: 50px;
+}
+
 #index .query .container form {
 	width: 40%;
 	margin-left: 30%;
@@ -259,6 +266,7 @@ body {
 /* AD page css */
 #result {
     display: none;
+    padding-bottom: 100px;
 }
 
 #result .header {
@@ -278,3 +286,4 @@ body {
     padding-right: 20%;
     padding-bottom: 50px;
 }
+
