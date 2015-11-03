@@ -19,6 +19,10 @@ module.exports = function(app) {
     });
   });
 
+  app.get('/easter-egg',function(req,res){
+    return res.render('easter-egg');
+  });
+
   app.post('/result', function(req, res) {
     var name = req.body.name;
     var phone = req.body.phone;

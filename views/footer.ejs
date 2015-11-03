@@ -3,6 +3,31 @@
     Copyright © 2016 National Taiwan University Art Festival. All rights reserved.
     </footer>
     <script>
+    $(document).ready(function(){
+      //activate wow
+        $('.egg').each(function() {
+              animationClick(this, 'bounce');
+          });
+      });
+      var times = 0;
+      function animationClick(element, animation){
+        element = $(element);
+        element.click(
+            function() {
+              times+=1;
+              if(times>=5){
+                window.location.href = "/easter-egg";
+              }
+              $(element).attr("style",'');
+              element.removeClass('wow fadeInDown');
+              element.addClass('animated ' + animation);        
+              //wait for animation to finish before removing classes
+              window.setTimeout( function(){
+                  element.addClass('wow fadeInDown');
+                  element.removeClass('animated ' + animation);
+              }, 1000);
+            });
+      }
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
