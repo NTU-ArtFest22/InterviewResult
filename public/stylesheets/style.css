@@ -240,6 +240,7 @@ body {
 /* Error page css */
 #error {
     display: none;
+    padding-bottom: 100px;
 }
 
 #error .header {
