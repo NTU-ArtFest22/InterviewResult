@@ -12,11 +12,11 @@
 				<form action="/result" method="post">
 					<div class="form-group">
 						<label for="name">請輸入你的名字</label>
-						<input type="text" name="name" required class="form-control" placeholder="EX：王小明">
+						<input type="text" name="name" required class="form-control" placeholder="EX：王小明" oninvalid="this.setCustomValidity('填入名字')" onchange="this.setCustomValidity('')">
 					</div>
 					<div class="form-group">
 						<label for="phone">請輸入你的手機號碼</label>
-						<input type="text" name="phone" required class="form-control" placeholder="EX：0912345678">
+						<input type="text" name="phone" required class="form-control" placeholder="EX：0912345678" oninvalid="this.setCustomValidity('填入你的手機號碼')" onchange="this.setCustomValidity('')">
 					</div>
 					<button type="submit" class="btn btn-transparent center-block">馬上查詢</button>
 				</form>
