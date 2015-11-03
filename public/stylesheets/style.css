@@ -18,9 +18,9 @@ h4,
 h5,
 h6 {
 	margin: 0 0 35px;
-	font-weight: 700;
-	letter-spacing: 1px;
+	letter-spacing: 2px;
     cursor: default;
+    color: #fff;
 }
 
 p {
@@ -40,14 +40,38 @@ a {
     &:focus {
         text-decoration: none;
         outline: none;
-        color: darken(white,20%);
+        color: rgba(256, 256, 256, 0.2);
     }
+}
+
+input[type="text"] {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+	background: rgba(144, 144, 144, 0.25);
+	border-radius: 3px;
+	border: none;
+	color: white;
+	font-size: 16px;
+	letter-spacing: 1px;
+	display: block;
+	outline: 0;
+	padding: 0 1em;
+	text-decoration: none;
+	width: 100%;
+	height: 2.75em;
+}
+
+input[type="text"]:focus {
+	box-shadow: 0 0 0 2px #21b2a6;
 }
 
 .btn {
     cursor: pointer;
     text-transform: uppercase;
     color: white;
+    font-size: 16px;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
@@ -60,13 +84,15 @@ a {
     border: 1px solid #D0104C;
     color: #D0104C;
     background-color: transparent;
-    &:hover,
-    &:focus {
-        outline: none;
-        color: white;
-        background-color: #D0104C;
-    }
 }
+
+.btn-default:hover,
+.btn-default:focus {
+    outline: none;
+    color: white;
+    background-color: #D0104C;
+}
+
 .btn-transparent {
     border: 2px solid white;
     padding: 10px 20px;
@@ -75,29 +101,31 @@ a {
     -webkit-transition: background .3s ease-in-out;
     -moz-transition: background .3s ease-in-out;
     transition: background .3s ease-in-out;
-    &:hover,
-    &:focus {
-        outline: none;
-        color: white;
-        background: fade(white, 10%);
-    }
-    i.animated {
-        -webkit-transition-property: -webkit-transform;
-        -webkit-transition-duration: 1s;
-        -moz-transition-property: -moz-transform;
-        -moz-transition-duration: 1s;
-    }
+}
+
+.btn-transparent:hover,
+.btn-transparent:focus {
+    outline: none;
+    color: white;
+    background: rgba(256, 256, 256, 0.1);
+}
+
+.btn-transparent i.animated {
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
 }
 
 ::-moz-selection {
     text-shadow: none;
     background: #fcfcfc;
-    background: fade(white, 20%);
+    background: rgba(256, 256, 256, 0.1);
 }
 ::selection {
     text-shadow: none;
     background: #fcfcfc;
-    background: fade(white, 20%);
+    background: rgba(256, 256, 256, 0.2);
 }
 img::selection {
     background: transparent;
@@ -106,12 +134,14 @@ img::-moz-selection {
     background: transparent;
 }
 body {
-    webkit-tap-highlight-color: fade(white, 20%);
+    webkit-tap-highlight-color: rgba(256, 256, 256, 0.2);
 }
 
-/* Index page css */
-#index {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../image/index-bg.jpg');
+.wrapper {
+	min-height: 100%;
+	margin-bottom: -50px; 
+
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../image/index-bg.jpg');
     background-repeat: none;
     background-attachment: scroll;
     background-position: center center;
@@ -121,3 +151,56 @@ body {
     background-size: cover;
     -o-background-size: cover;
 }
+
+.wrapper:after {
+  content: "";
+  display: block;
+}
+
+.copyright, .page-wrap:after {
+  height: 50px; 
+}
+
+.copyright {
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+	font-family: "Montserrat", sans-serif;
+	letter-spacing: 1px;
+}
+/* Index page css */
+#index .header {
+	text-align: center;
+	padding-top: 100px;
+} 
+
+#index .header .container .img-responsive {
+	padding-left: 10px;
+	margin-bottom: 50px;
+}
+
+#index .header .container h3 {
+	line-height: 1.5;
+}
+
+#index .query .container form {
+	width: 40%;
+	margin-left: 30%;
+	margin-right: 30%;
+}
+
+#index .query .container form .form-group label {
+	margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: default;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: white;
+}
+
+#index .query .container form button {
+	margin-top: 50px;
+}
+
+/* Error page css */
