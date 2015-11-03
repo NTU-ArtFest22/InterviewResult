@@ -26,7 +26,7 @@ h6 {
 }
 
 p {
-	margin: 0 0 25px;
+	margin: 15px 0 15px;
     color: white;
     font-size: 16px;
     line-height: 1.5;
@@ -87,7 +87,19 @@ input[type="text"]:focus {
 .btn-default {
     border: 2px solid #E87A90;
     color: #E87A90;
+    padding: 10px 20px;
     background-color: transparent;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+@media(max-width: 768px){
+    .btn-default {
+        color: white;
+        background-color: #DB4D6D;
+        border: 2px solid #DB4D6D;
+    }
 }
 
 .btn-default:hover,
@@ -176,6 +188,7 @@ body {
 /* Index page css */
 #index {
     display: none;
+    padding-bottom: 100px;
 }
 
 #index .header {
@@ -200,6 +213,14 @@ body {
 	width: 40%;
 	margin-left: 30%;
 	margin-right: 30%;
+}
+
+@media(max-width: 768px) {
+    #index .query .container form {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }
 
 #index .query .container form .form-group label {
@@ -276,14 +297,15 @@ body {
 
 #result .header .container .img-responsive {
     padding-left: 10px;
-    margin-bottom: 100px;
+    margin-bottom: 75px;
 }
 
 #result .header .container .message {
     text-align: left;
     letter-spacing: 1px;
+    padding-top: 20px;
     padding-left: 20%;
     padding-right: 20%;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
 }
 
