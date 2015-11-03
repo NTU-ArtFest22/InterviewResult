@@ -88,7 +88,7 @@ module.exports = function(app) {
           errorType = 'wrong_name';
         }
       }
-      renderPage = 'result_sorry';
+      renderPage = 'error';
     }
     return res.render(renderPage, {
       name: name,
