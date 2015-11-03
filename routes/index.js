@@ -55,7 +55,7 @@ module.exports = function(app) {
           renderPage = 'result_administration';
           break;
         case 'hr':
-          renderPage = 'result_hr';
+          renderPage = 'result_HR';
           break;
         case 'design':
           renderPage = 'result_design';
