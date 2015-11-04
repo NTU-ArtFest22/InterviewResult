@@ -8,6 +8,14 @@
         $('.egg').each(function() {
               animationClick(this, 'bounce');
           });
+        $('#action').click(function(){
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'Facebook Group',
+            eventAction: 'facebook-group',
+            eventLabel: 'facebook-group'
+          });
+        })
       });
       var times = 0;
       function animationClick(element, animation){
@@ -16,6 +24,12 @@
             function() {
               times+=1;
               if(times>=5){
+                ga('send', {
+                  hitType: 'event',
+                  eventCategory: 'EasterEgg',
+                  eventAction: 'easter-egg',
+                  eventLabel: 'Someone find Easter Egg'
+                });
                 window.location.href = "/easter-egg";
               }
               $(element).attr("style",'');
