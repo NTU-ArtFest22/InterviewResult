@@ -12,6 +12,7 @@
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/animate.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/mathbox.css">
     <!-- Custom Fonts -->
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -131,18 +132,12 @@ vec4 getFramesSample(vec2 xy) {
     <div id="pause" class="playerbutton"><div><div></div></div></div>
     <div id="play"  class="playerbutton"><div><div></div></div></div>
     <div id="loading" class="playerbutton"><div><div></div></div></div>
-    <div class="wrapper">
     <script>
     window.onload = function () {
-        $('canvas').each(function(i) {
-            $(this).attr('name', 'canvas');
-            $(this).attr('id', 'canvas');
-            // $(this).css('display', 'none');
-        });
       setTimeout(function () {
         play.style.display = 'block';
         pause.style.display = 'block';
-        // play.click();
+        play.click();
       }, 500);
       
       var audioSupport = window.AudioContext || window.webkitAudioContext;
@@ -748,3 +743,5 @@ vec4 getFramesSample(vec2 xy) {
         zOrder: 2
       })
   </script>
+</body>
+</html>

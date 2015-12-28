@@ -12,8 +12,7 @@ module.exports = function(app) {
   //   var renderPage = req.params.page;
   //   return res.render(renderPage, {
   //     name: 'name',
-  //     from: 'from',
-  //     depaprtment: 'depaprtment',
+  //     department: 'department',
   //     vdc: 'vdcSpecialCase',
   //     errorType: 'errorType'
   //   });
@@ -21,6 +20,9 @@ module.exports = function(app) {
 
   app.get('/easter-egg',function(req,res){
     return res.render('easter-egg');
+  });
+  app.get('/effect',function(req,res){
+    return res.render('effect');
   });
 
   app.post('/result', function(req, res) {
@@ -38,43 +40,40 @@ module.exports = function(app) {
     });
     var vdcSpecialCase = {};
     var renderPage = 'error';
-    var depaprtment = '';
-    var from = '';
+    var department = '';
     var errorType = '';
     if (found) {
-      depaprtment = found.depaprtment.toLowerCase();
-      from = found.from;
-      switch (depaprtment) {
+      department = found.department.toLowerCase();
+      switch (department) {
         case 'day':
-          renderPage = 'result_day';
+          renderPage = 'result_yes';
           break;
         case 'night':
-          renderPage = 'result_night';
+          renderPage = 'result_yes';
           break;
         case 'dream':
-          renderPage = 'result_dream';
+          renderPage = 'result_yes';
           break;
         case 'marketing':
-          renderPage = 'result_marketing';
+          renderPage = 'result_yes';
           break;
         case 'administration':
-          renderPage = 'result_administration';
+          renderPage = 'result_yes';
           break;
         case 'hr':
-          renderPage = 'result_HR';
+          renderPage = 'result_yes';
           break;
         case 'design':
-          renderPage = 'result_design';
+          renderPage = 'result_yes';
           break;
         case 'pr':
-          renderPage = 'result_pr';
+          renderPage = 'result_yes';
           break;
         case 'r2d2':
-          renderPage = 'result_r2d2';
+          renderPage = 'result_yes';
           break;
         case 'vdc':
-          renderPage = 'result_vdc';
-          vdcSpecialCase = found.vdcSpecialCase;
+          renderPage = 'result_yes';
           break;
         default:
           renderPage = 'error';
@@ -101,8 +100,7 @@ module.exports = function(app) {
     }
     return res.render(renderPage, {
       name: name,
-      from: from,
-      depaprtment: depaprtment,
+      department: department,
       vdcSpecialCase: vdcSpecialCase,
       errorType: errorType
     });
