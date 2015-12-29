@@ -19,7 +19,7 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 0 0 35px;
+	margin: 0 0 3%;
 	letter-spacing: 2px;
     cursor: default;
     color: #fff;
@@ -27,7 +27,7 @@ h6 {
 }
 
 p {
-	margin: 15px 0 15px;
+	margin: 0.5% 0 0.5%;
     color: white;
     font-size: 16px;
     line-height: 1.5;
@@ -103,6 +103,16 @@ input[type="text"]:focus {
     }
 }
 
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none !important;
+}
+
+a button{
+    margin-top:10px; 
+    margin-bottom:10px; 
+}
+
 .btn-default:hover,
 .btn-default:focus {
     outline: none;
@@ -163,8 +173,6 @@ body {
     top: 0;
     bottom: 0;
 	min-height: 100%;
-	margin-bottom: -50px; 
-    position: absolute;
     background: transparent;
 }
 
@@ -174,7 +182,7 @@ body {
 }
 
 .copyright, .page-wrap:after {
-  height: 50px; 
+  height: 0px; 
 }
 
 .copyright {
@@ -184,20 +192,21 @@ body {
 	font-family: "Montserrat", sans-serif;
 	letter-spacing: 1px;
 }
+
 /* Index page css */
 #index {
     display: none;
-    padding-bottom: 100px;
+    /*padding-bottom: 100px;*/
 }
 
 #index .header {
 	text-align: center;
-	padding-top: 100px;
+	padding-top: 10%
 } 
 
 #index .header .container .img-responsive {
 	padding-left: 10px;
-	margin-bottom: 50px;
+	margin-bottom: 5%;
 }
 
 #index .header .container h3 {
@@ -205,7 +214,7 @@ body {
 }
 
 #index .query {
-    padding-bottom: 50px;
+    padding-bottom: 7%;
 }
 
 #index .query .container form {
@@ -233,27 +242,27 @@ body {
 }
 
 #index .query .container form button {
-	margin-top: 50px;
+	margin-top: 7%;
 }
 
 /* Error page css */
 #error {
     display: none;
-    padding-bottom: 100px;
+    /*padding-bottom: 100px;*/
 }
 
 #error .header {
     text-align: center;
-    padding-top: 100px;
+    padding-top: 10%;
 } 
 
 #error .header .container .img-responsive {
     padding-left: 10px;
-    margin-bottom: 100px;
+    margin-bottom: 5%;
 }
 
 #error .header .container p {
-    padding-bottom: 30px;
+    padding-bottom: 3%;
 }
 
 #error .header .container a:hover {
@@ -268,48 +277,49 @@ body {
 
 #sorry .header {
     text-align: center;
-    padding-top: 100px;
+    padding-top: 5%;
 } 
 
 #sorry .header .container .img-responsive {
     padding-left: 10px;
-    margin-bottom: 100px;
+    margin-bottom: 5%;
 }
 
 #sorry .header .container .sorry-message {
     text-align: left;
     letter-spacing: 1px;
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-bottom: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 2%;
 }
 
 /* AD page css */
 #result {
     display: none;
-    padding-bottom: 100px;
+    /*padding-bottom: 100px;*/
 }
 
 #result .header {
     text-align: center;
-    padding-top: 100px;
+    padding-top: 5%;
 } 
 
 #result .header .container .img-responsive {
     padding-left: 10px;
-    margin-bottom: 75px;
+    margin-bottom: 5%;
 }
 
 #result .header .container .message {
     text-align: left;
     letter-spacing: 1px;
-    padding-top: 20px;
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-bottom: 20px;
+    padding-top: 2%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 2%;
 }
 
 .video {
+    z-index: 20000;
     position: absolute;
     left: 0;
     top: 0;
@@ -349,69 +359,8 @@ body {
 body * {
   box-sizing: content-box;
 }
-.playerbutton {
-  position: fixed;
-  z-index: 10001;
-  left: 5%;
-  top: 90%;
-  margin-left: -100px;
-  margin-top: -100px;
-  width: 200px;
-  height: 200px;
-  cursor: pointer;
-}
-.playerbutton > div {
-  margin: 50px auto;
-  width: 100px;
-  height: 100px;
-  border-radius: 50% 50%;
-  background: rgb(120,139,149);
-  color: #fff;
-  overflow: hidden;
-}
-#play div div, #loading div div {
-  margin: 30px 30px 0 30px;
-  width: 0px;
-  border-top:    20px solid transparent;
-  border-left:   40px solid #fff;
-  border-bottom: 20px solid transparent;
-}
-#pause div div {
-  margin: 30px 30px 0 30px;
-  display: block;
-  width: 10px;
-  height: 40px;
-  border-left:  15px solid #fff;
-  border-right: 15px solid #fff;
-}
-#pause {
-  opacity: 0;
-}
-#pause:hover {
-  opacity: 1;
-}
-#loading {
-  display: none;
-  cursor: wait;
-}
-#play, #pause {
-  display: none;
-}
-#about {
-  opacity: 0;
-  display: none;
-  
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-
-  border-radius: 2px;
-  background: rgba(0, 0, 0, .25);
-  color: #fff;
-  padding: 5px 10px;
-  text-align: center;
-  
-  font-size: 12px;
+#play{
+  cursor:pointer;
 }
 #browser {
   display: none;
