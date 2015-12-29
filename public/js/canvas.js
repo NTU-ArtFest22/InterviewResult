@@ -13,7 +13,6 @@ window.onload = function() {
 
 var playJ = $('.play');
 var play = document.querySelector('.play');
-var loading = document.querySelector('#loading');
 var playing = false;
 play.onclick = function() {
   playJ.toggleClass('active');
@@ -93,7 +92,6 @@ function loadAudio(url) {
       }
     };
     audio.oncanplaythrough = function() {
-      // loading.style.display = 'none';
       audio.play();
     };
 
@@ -107,7 +105,6 @@ function loadAudio(url) {
     audio.onended = function() {
       play.style.display = 'block';
     };
-    loading.style.display = 'block';
     audio.crossOrigin = "anonymous";
     audio.src = url;
   } else {

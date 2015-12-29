@@ -545,16 +545,20 @@ body * {
 
 .play-wrapper{
   position: absolute;
+  cursor: pointer;
   top: -50px;
+  left: 50px;
   transform: scale(0.67);
 }
-@media(max-width: 768px) {
+@media(max-width: 500px) {
   .play-wrapper{
+    left: 25px;
     transform: scale(0.3);
   }
 }
 
 .play {
+  opacity: 0.3;
   display: block;
   width: 0;
   height: 0;
@@ -590,10 +594,18 @@ body * {
   -webkit-transition: opacity 0.6s;
   -moz-transition: opacity 0.6s;
 }
+.play:hover, .play:focus {
+  opacity: 1;
+  transition: opacity .2s ease-out;
+  -moz-transition: opacity .2s ease-out;
+  -webkit-transition: opacity .2s ease-out;
+  -o-transition: opacity .2s ease-out;
+}
 .play:hover:before, .play:focus:before {
-  transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
+  opacity: 1;
+  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
 }
 .play.active {
   border-color: transparent;
