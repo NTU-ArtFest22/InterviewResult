@@ -2,7 +2,10 @@
 <div id="index">
   <section class="header">
     <div class="container">
-      <img src="/image/logo.png" id='play' class="img-responsive center-block wow fadeIn" data-wow-duration="2s" alt="" style="height: 100px;">
+      <div class="play-wrapper">
+        <div class="play"></div>
+      </div>
+      <img src="/image/logo.png" class="img-responsive center-block wow fadeIn" data-wow-duration="2s" alt="" style="height: 100px;">
       <h3 class="wow fadeIn" data-wow-duration="2s">第二十二屆臺灣大學藝術季<br>
       ART2D2：臆想未來製造所<br>
       二階研究員面試結果</h3>
@@ -27,8 +30,8 @@
 <script>
 $(document).ready(function(){
 //activate wow
-  $('#index').css( "display", "block" );
-  new WOW().init();
+$('#index').css( "display", "block" );
+new WOW().init();
 });
 </script>
 <% include footer %>

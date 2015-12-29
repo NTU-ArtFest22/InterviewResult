@@ -11,10 +11,12 @@ window.onload = function() {
   }
 };
 
-var play = document.querySelector('#play');
+var playJ = $('.play');
+var play = document.querySelector('.play');
 var loading = document.querySelector('#loading');
 var playing = false;
 play.onclick = function() {
+  playJ.toggleClass('active');
   if (playing) {
     playing = false;
     audio.pause();
@@ -91,7 +93,7 @@ function loadAudio(url) {
       }
     };
     audio.oncanplaythrough = function() {
-      loading.style.display = 'none';
+      // loading.style.display = 'none';
       audio.play();
     };
 

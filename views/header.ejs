@@ -28,105 +28,93 @@
     <script src="/js/jquery.easing.min.js"></script>
     <!-- Custom stylesheets -->
   </head>
-
-<script type="application/glsl" id="map-rotate">
-uniform vec3 dataResolution;
-uniform vec3 dataSize;
-const float COS = .995;
-const float SIN = .01;
-vec4 getSample(vec3 xyz);
-vec4 getFramesSample(vec3 xyz) {
+  <script type="application/glsl" id="map-rotate">
+  uniform vec3 dataResolution;
+  uniform vec3 dataSize;
+  const float COS = .995;
+  const float SIN = .01;
+  vec4 getSample(vec3 xyz);
+  vec4 getFramesSample(vec3 xyz) {
   vec2 pos = xyz.xy * dataResolution.xy - .5;
   pos = ((pos * vec2(16.0, 9.0)) * mat2(COS, SIN, -SIN, COS) * .98) / vec2(16.0, 9.0);
   xyz.xy = (pos + .5) * dataSize.xy;
   return getSample(xyz) - .01;
-}
-</script>
-
-<script type="application/glsl" id="map-temporal-blur">
-uniform float time;
-uniform float modulate;
-uniform float pattern;
-uniform float warp;
-uniform float shift;
-vec4 getSample(vec3 xyz);
-vec4 getFramesSample(vec3 xyz) {
+  }
+  </script>
+  <script type="application/glsl" id="map-temporal-blur">
+  uniform float time;
+  uniform float modulate;
+  uniform float pattern;
+  uniform float warp;
+  uniform float shift;
+  vec4 getSample(vec3 xyz);
+  vec4 getFramesSample(vec3 xyz) {
   // Convolve 4 last buffers
   vec4 color = (
-    getSample(xyz) +
-    getSample(xyz + vec3(0.0, 0.0, 1.0)) +
-    getSample(xyz + vec3(0.0, 0.0, 2.0)) +
-    getSample(xyz + vec3(0.0, 0.0, 3.0))
+  getSample(xyz) +
+  getSample(xyz + vec3(0.0, 0.0, 1.0)) +
+  getSample(xyz + vec3(0.0, 0.0, 2.0)) +
+  getSample(xyz + vec3(0.0, 0.0, 3.0))
   ) / 4.0;
   
   // Grayscale
   float v = color.x + color.y + color.z;
-
   // Warp effect
   vec2 xy = xyz.xy;
   xy = xy + warp * sin(vec2(xy.y, xy.x) / 16.0) * 8.0;
-
   // Calculate shift bias
   float d = shift * sin((xy.x + xy.y) / 16.0 + time / 4.0) * 4.0;
-
   // Radial and tiled pattern
   float r = length(xy - vec2(64.0, 36.0));
   float m = abs(fract((r + time) / 32.0) - .5);
-
   // Map with warped signed distance + bias
   vec2 sxy = abs(fract(vec2(xy + time) / vec2(32.0, 32.0)) - .5);
   m = mix(min(sxy.x, sxy.y), m, pattern);
   float s = mix(1.0, 2.0 * clamp(32.0 * m - 8.0 + d, 0.0, 1.0), modulate);
-
   return vec4(vec3(v * v) / 8.0 * s, 1.0);
-} 
-</script>
-
-<script type="application/glsl" id="map-xy-to-xyz">
-vec3 getSample(vec3 xyz);
-vec3 getFramesSample(vec3 xyz) {
+  }
+  </script>
+  <script type="application/glsl" id="map-xy-to-xyz">
+  vec3 getSample(vec3 xyz);
+  vec3 getFramesSample(vec3 xyz) {
   vec3 c = getSample(xyz);
   vec2 uv = (xyz.xy - vec2(64.0, 36.0)) / vec2(64.0, 36.0) * vec2(16.0 / 9.0, 1.0);
   float f = xyz.z * 2.0 - 1.0;
   return vec3(uv, (c.x + c.y + c.z) * .1 * f);
-}
-</script>
-
-<script type="application/glsl" id="map-z-to-color">
-uniform float modulate1;
-uniform float modulate2;
-uniform float modulate3;
-uniform float modulate4;
-uniform float modulate5;
-vec4 getSample(vec2 xy);
-vec4 getFramesSample(vec2 xy) {
+  }
+  </script>
+  <script type="application/glsl" id="map-z-to-color">
+  uniform float modulate1;
+  uniform float modulate2;
+  uniform float modulate3;
+  uniform float modulate4;
+  uniform float modulate5;
+  vec4 getSample(vec2 xy);
+  vec4 getFramesSample(vec2 xy) {
   vec3 c = getSample(xy).xyz;
   c = c.z * vec3(c.z * vec2(c.z, 1.0), 1.0);
   c = mix(c, mix(c.yzx, c.zxy, modulate1), modulate2);
   c = mix(c, mix(abs(sin(c.yxz * 2.0)), c.zyx, modulate3), modulate4);
   c = mix(c, mix(c.yzx * c.yzx, c.zxy * c.zxy, modulate1), modulate5);
   return vec4(c, 1.0);
-}
-</script>
-
-<script type="application/glsl" id="map-z-to-color-2">
-uniform float modulate1;
-uniform float modulate2;
-uniform float modulate3;
-uniform float modulate4;
-uniform float modulate5;
-vec4 getSample(vec2 xy);
-vec4 getFramesSample(vec2 xy) {
+  }
+  </script>
+  <script type="application/glsl" id="map-z-to-color-2">
+  uniform float modulate1;
+  uniform float modulate2;
+  uniform float modulate3;
+  uniform float modulate4;
+  uniform float modulate5;
+  vec4 getSample(vec2 xy);
+  vec4 getFramesSample(vec2 xy) {
   vec3 c = getSample(xy).xyz;
   c = vec3(.01) + sqrt(c.z * vec3(c.z * vec2(c.z, 1.0), 1.0));
   c = mix(c, mix(c.yzx, c.zxy, modulate1), modulate2);
   c = mix(c, mix(abs(sin(c.yxz * 2.0)), c.zyx, modulate3), modulate4);
   c = mix(c, mix(c.yzx * c.yzx, c.zxy * c.zxy, modulate1), modulate5);
   return vec4(c, 1.0);
-}
-</script>
-
+  }
+  </script>
   <body>
     <div id="browser" style="display: none">Note: Web audio support required.<br>Try Chrome or Firefox.</div>
     <div class="wrapper">
-        <div id='loading' class='uil-ring-css' style='transform:scale(0.57);'><div></div></div>
