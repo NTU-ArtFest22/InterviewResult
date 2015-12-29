@@ -1,4 +1,3 @@
-
 window.onload = function() {
   $('canvas').each(function(i) {
     $(this).attr('name', 'canvas');
@@ -18,9 +17,21 @@ play.onclick = function() {
   if (playing) {
     playing = false;
     audio.pause();
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Click pause',
+      eventAction: 'click-pause',
+      eventLabel: 'click-pause'
+    });
   } else {
     playing = true;
     loadAudio();
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Click play',
+      eventAction: 'click-play',
+      eventLabel: 'click-play'
+    });
   }
 };
 
@@ -138,7 +149,7 @@ var makeAudioPipe = function(element) {
 
 // Mathbox
 var mathbox = mathBox({
-  plugins: ['core', 'controls', 'fullscreen','ui'],
+  plugins: ['core', 'controls', 'fullscreen', 'ui'],
   renderer: {
     parameters: {
       antialias: false,
